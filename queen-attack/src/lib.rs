@@ -25,16 +25,7 @@ impl Queen {
     }
 
     pub fn can_attack(&self, other_queen: &Queen) -> bool {
-        if other_queen.chess_position.x == self.chess_position.x ||
-           other_queen.chess_position.y == self.chess_position.y {
-            return true;
-        } else {
-            let x_diff = other_queen.chess_position.x - self.chess_position.x;
-            if self.chess_position.y + x_diff == other_queen.chess_position.y ||
-               self.chess_position.y - x_diff == other_queen.chess_position.y {
-                return true;
-            }
-        }
-        return false;
+        return (other_queen.chess_position.x == self.chess_position.x || other_queen.chess_position.y == self.chess_position.y) ||
+               (self.chess_position.x - other_queen.chess_position.x).abs() == (self.chess_position.y - other_queen.chess_position.y).abs()
     }
 }
