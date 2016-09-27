@@ -8,10 +8,10 @@ pub fn anagrams_for<'a>(string: &'a str, candidates: &[&'a str]) -> Vec<&'a str>
     let lstring = string.to_lowercase();
     let string_chars = return_sort_char_list(&lstring);
     let mut final_candidates: Vec<&'a str> = Vec::new();
-    for &c in candidates.iter() {
-        let lc = c.to_lowercase();
-        if return_sort_char_list(&lc) == string_chars && lstring != lc {
-            final_candidates.push(c);
+    for &candidate in candidates.iter() {
+        let lcandidate = candidate.to_lowercase();
+        if return_sort_char_list(&lcandidate) == string_chars && lstring != lcandidate {
+            final_candidates.push(candidate);
         }
     }
     final_candidates
